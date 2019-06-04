@@ -13,7 +13,6 @@ public:
     void output() const { std::cout << expr << " = " << result << std::endl; }
     std::string toPostExpression(const std::string &expr);
 private:
-
     std::string calculatePostExpression(const std::string &postExpr);
     std::string fillZeroToExpression(const std::string &expr);
 private:
