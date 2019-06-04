@@ -2,20 +2,6 @@
 #include "calculator.h"
 #include <iostream>
 
-
-namespace ExtensionSystem
-{
-    class IPlugin
-    {
-
-    };
-}
-
-class CorePlugin : public ExtensionSystem::IPlugin
-{
-
-};
-
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
