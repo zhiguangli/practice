@@ -1,11 +1,8 @@
-#include <QCoreApplication>
 #include "calculator.h"
 #include <iostream>
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
     try
     {
         Calculator calculator;
@@ -16,7 +13,6 @@ int main(int argc, char *argv[])
     {
         std::cerr << e << std::endl;
     }
-
-
-    return a.exec();
+    
+    return 0;
 }
