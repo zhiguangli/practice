@@ -59,9 +59,7 @@ std::string Calculator::toPostExpression(const std::string &expr)
                postExpr.push_back(' ');
            }
         }
-
-        ch = infixExpr[i];
-
+        
         switch (ch)
         {
             case ')':
