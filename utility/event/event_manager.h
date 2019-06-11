@@ -17,7 +17,7 @@ namespace event
         using FunctionType = std::function<void(EventType &)>;
         
         template<typename EventType, typename ClassType>
-        void registe_event(void (ClassType::*method)(EventType &), ClassType *obj)
+        void register_event(void (ClassType::*method)(EventType &), ClassType *obj)
         {
             FunctionType<EventType> f = [method, obj](EventType &event) {
                 (obj->*method)(event);
@@ -27,14 +27,14 @@ namespace event
         }
         
         template<typename EventType>
-        void registe_event(void(*func)(EventType &))
+        void register_event(void(*func)(EventType &))
         {
             FunctionType<EventType> f = func;
             add(typeid(EventType).name(), std::move(f));
         }
         
         template<typename EventType>
-        void registe_event(FunctionType<EventType> && f)
+        void register_event(FunctionType<EventType> && f)
         {
             add(typeid(EventType).name(), std::move(f));
         }
@@ -60,8 +60,8 @@ namespace event
     };
 }
 
-#define qRegisterEventForCommonFunction(method)              event::event_manager::instance().registe_event(method)
-#define qRegisterEventForNonCommonFunction(method, obj)      event::event_manager::instance().registe_event(method, obj)
+#define qRegisterEventForCommonFunction(method)              event::event_manager::instance().register_event(method)
+#define qRegisterEventForNonCommonFunction(method, obj)      event::event_manager::instance().register_event(method, obj)
 #define qNotifyAll(event)                                    event::event_manager::instance().notify(event)
 
 
